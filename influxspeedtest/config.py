@@ -24,7 +24,7 @@ class Config:
 
         # InfluxDB
         section_influxdb = self.config['influxdb']
-        self.influx_address = section_influxdb.get('address', fallback=None)
+        self.influx_address = section_influxdb.get('address', fallback='influxdb')
         if not self.influx_address:
             logger.error('config option "influxdb.address" is required')
             sys.exit(1)

@@ -15,7 +15,7 @@ Sample config file (with defaults):
     delay = 300                 # delay between runs in seconds
     
     [influxdb]
-    address =                   # address of InfluxDB (IP or hostname); required
+    address = influxdb          # address of InfluxDB (IP or hostname)
     port = 8086                 # port that InfluxDB is running on; (8086 in most cases)
     database = speedtests       # database to write speed test stats to
     username =                  # user with access to database
