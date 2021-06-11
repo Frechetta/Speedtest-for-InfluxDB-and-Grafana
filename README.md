@@ -20,8 +20,8 @@ Sample config file (with defaults):
     database = speedtests       # database to write speed test stats to
     username =                  # user with access to database
     password =                  # password for user
-    influx_ssl = False          # whether to use SSL or not
-    influx_verify_ssl = True    # if using SSL, whether to verify the SSL connection or not 
+    ssl = False                 # whether to use SSL or not
+    verify_ssl = True           # if using SSL, whether to verify the SSL connection or not 
     
     [speedtest]
     server =                    # comma-seperated list of servers; leave blank for auto
