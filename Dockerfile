@@ -1,11 +1,17 @@
-FROM python:alpine
-MAINTAINER Allan Tribe <atribe13@gmail.com>
+FROM python:3.9-slim-buster
+MAINTAINER Eric Frechette <frechetta93@gmail.com>
 
-VOLUME /src/
-COPY influxspeedtest.py requirements.txt config.ini /src/
-ADD influxspeedtest /src/influxspeedtest
-WORKDIR /src
+RUN apt update && \
+    apt install -y tini
 
+WORKDIR /app/
+
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-CMD ["python", "-u", "/src/influxspeedtest.py"]
+COPY config.ini .
+COPY influxspeedtest/ influxspeedtest/
+
+USER 1000:1000
+
+ENTRYPOINT ["tini", "--", "python", "-m", "influxspeedtest.main"]
