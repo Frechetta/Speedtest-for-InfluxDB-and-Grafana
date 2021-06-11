@@ -12,6 +12,4 @@ RUN pip install -r requirements.txt
 COPY config.ini .
 COPY influxspeedtest/ influxspeedtest/
 
-USER 1000:1000
-
 ENTRYPOINT ["tini", "--", "python", "-m", "influxspeedtest.main"]
